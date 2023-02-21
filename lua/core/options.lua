@@ -48,6 +48,7 @@ opt.updatetime = 250
 opt.whichwrap:append "<>[]hl"
 
 g.mapleader = " "
+g.maplocalleader = ","
 
 -- disable some builtin vim plugins
 local default_plugins = {
@@ -93,3 +94,11 @@ local default_providers = {
 for _, provider in ipairs(default_providers) do
   vim.g["loaded_" .. provider .. "_provider"] = 0
 end
+
+vim.cmd("let g:test#strategy = 'neoterm'")
+vim.cmd("let g:test#preserve_screen = 0")
+
+vim.cmd("let g:neoterm_default_mod = 'vert'")
+vim.cmd("let g:neoterm_autoscroll = 1")
+vim.cmd("let g:neoterm_keep_term_open = 0")
+vim.cmd("let g:neoterm_automap_keys = ',oo'") -- HACK to avoid having one of my binds hijacked
